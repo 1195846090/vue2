@@ -3,7 +3,7 @@
     <div class="login_box">
       <!-- 头像区域 -->
       <div class="avater_box">
-        <img src="../assets/logo.png" alt="" />
+        <img src="../assets/img/touxiang.jpg" alt="" />
       </div>
       <!-- 登录表单 -->
       <el-form
@@ -94,7 +94,8 @@ export default {
 
 <style lang="less" scoped>
 .login_container {
-  background-color: #2b4b6b;
+  // background-color: #2b4b6b;
+  background: url('../assets/img/cat.jpg');
   height: 100%;
   position: relative;
 }
