@@ -2,27 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 const Login = () => import('../components/Login.vue')
-
 const Home = () => import('../components/Home.vue')
-
 const Welcome = () => import('../components/Welcome.vue')
-
 const Users = () => import('../components/user/Users.vue')
-
 const Rights = () => import('../components/power/Rights.vue')
-
 const Roles = () => import('../components/power/Roles.vue')
 const Cate = () => import('../components/goods/Cate.vue')
-// import Login from '../components/Login.vue'
-// import Home from '../components/Home.vue'
-// import Welcome from '../components/Welcome.vue'
-// import Users from '../components/user/Users.vue'
-// import Rights from '../components/power/Rights.vue'
-// import Roles from '../components/power/Roles.vue'
-// // import Add from '../components/goods/Add.vue'
-// import Cate from '../components/goods/Cate.vue'
-// // import List from '../components/goods/List.vue'
-// // import Params from '../components/goods/Params.vue'
+const Params = () => import('../components/goods/Params.vue')
+
 
 Vue.use(VueRouter)
 
@@ -40,7 +27,7 @@ const routes = [
       { path: '/roles', component: Roles },
       // { path: '/roles', component: Add },
       { path: '/categories', component: Cate },
-      // { path: '/roles', component: List },
+      { path: '/params', component: Params },
       // { path: '/roles', component: Params },
     ]
   },
