@@ -4,12 +4,12 @@
     <el-header>
       <div class="tab-left">
         <img src="../assets/img/favicon.jpg" alt="" />
-        <span>车载图书管理系统</span>
+        <span>车载图书吧管理系统</span>
       </div>
       <div class="tab-right">
         <i class="iconfont">&#xe6a2;</i>
         <i class="iconfont">&#xe616;</i>
-        <i class="iconfont">&#xe632;</i>
+        <i class="iconfont">&#xe709;</i>
         <i id="message" class="iconfont">&#xe64b;
           <p></p>
         </i>
@@ -48,9 +48,9 @@
       <el-aside :width="isCollapse ? '64px' : '200px'">
         <div class="toggle-button" @click="toggleCollapse"><i id="iconf" class="iconfont">&#xe60d;</i></div>
         <!-- 侧边栏菜单区 -->
-        <el-menu background-color="#313743"
+        <el-menu background-color="#99CCCC"
           text-color="#fff"
-          active-text-color="#359BFF" unique-opened :collapse="isCollapse"
+          active-text-color="#409EFF" unique-opened :collapse="isCollapse"
           :collapse-transition="false" :router="true" :default-active="activePath">
           <!-- 一级菜单 -->
           <el-submenu :index="item.id + ''" v-for="item in menulist" :key="item.id">
@@ -65,7 +65,7 @@
             :key="subItem.id" @click="saveNavstate('/' + subItem.path)">
               <template slot="title">
                 <!-- 图标 -->
-              <i class="el-icon-menu"></i>
+              <i class="el-icon-loading"></i>
               <span>{{subItem.authName}}</span>
             </template>
             </el-menu-item>
@@ -92,7 +92,7 @@ export default {
         '103':'iconfont icon-tijikongjian',
         '101':'iconfont icon-shangpin',
         '102':'iconfont icon-danju',
-        '145':'iconfont icon-baobiao'
+        '145':'iconfont icon-baobiao',
       },
       isCollapse: false,
       activePath: '',
@@ -141,7 +141,8 @@ export default {
   height: 100%;
 }
 .el-header {
-  background-color: #363c3f;
+  // background-color: #363c3f;
+  background-color: #CCCCFF;
   display: flex;
   justify-content: space-between;
   padding-left: 0;
@@ -243,7 +244,8 @@ export default {
   }
 }
 .el-aside {
-  background-color: #313743;
+  // background-color: #313743;
+  background-color: #99CCCC;
   .el-menu {
     border-right: none;
   }
@@ -255,7 +257,8 @@ export default {
   margin-right: 10px;
 }
 .toggle-button {
-  background-color: #465166;
+  // background-color: #465166;
+  background-color: #99CC99;
   color: #fff;
   text-align: center;
   // font-size: 1px;
