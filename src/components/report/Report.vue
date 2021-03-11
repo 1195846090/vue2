@@ -9,39 +9,15 @@
 
     <!-- 卡片视图区域 -->
     <el-card>
-      <!-- 2. 为ECharts准备一个具备大小（宽高）的Dom -->
-      <div id="main" style="width: 750px;height:400px;"></div>
+
+      <el-row :gutter="20">
+      <el-col :span="14"><div id="main" style="width: 750px;height:400px;"></div></el-col>
+      <el-col :span="10"><div id="container" style="width: 500px;height:400px;"></div></el-col>
+      </el-row>
+
+      
     </el-card>
 
-    <!-- 立方体区域 -->
-        <!-- 创建一个外部的容器 -->
-    <div class="cube">
-        <!-- 引入图片 -->
-        <div class="box1">
-            <img src="../../assets/img/1.jpg">
-        </div>
-
-        <div class="box2">
-            <img src="../../assets/img/2.jpg">
-        </div>
-
-        <div class="box3">
-            <img src="../../assets/img/3.jpg">
-        </div>
-
-        <div class="box4">
-            <img src="../../assets/img/4.jpg">
-        </div>
-
-        <div class="box5">
-            <img src="../../assets/img/5.jpg">
-        </div>
-
-        <div class="box6">
-            <img src="../../assets/img/6.jpg">
-        </div>
-    </div>
-    <!-- 立方体结束 -->
   </div>
 </template>
 
@@ -49,6 +25,250 @@
 // 1. 导入 echarts
 import echarts from 'echarts'
 import _ from 'lodash'
+import { Graph } from "@antv/x6";
+
+const data = {
+  // 节点
+  nodes: [
+    {
+      id: 'node1', // String，可选，节点的唯一标识
+      x: 240,       // Number，必选，节点位置的 x 值
+      y: 40,       // Number，必选，节点位置的 y 值
+      width: 80,   // Number，可选，节点大小的 width 值
+      height: 40,  // Number，可选，节点大小的 height 值
+      label: '订单来源', // String，节点标签
+      attrs: {
+        body: {
+          fill: "#2963FF",
+          stroke: "none",
+          rx: 4,
+          ry: 4,
+        },
+        label: {
+          fill: "#B1E9CC",
+        },
+      },
+    },
+    {
+      id: 'node2', // String，节点的唯一标识
+      x: 40,      // Number，必选，节点位置的 x 值
+      y: 180,      // Number，必选，节点位置的 y 值
+      width: 80,   // Number，可选，节点大小的 width 值
+      height: 40,  // Number，可选，节点大小的 height 值
+      label: '华东', // String，节点标签
+      attrs: {
+            body: {
+              fill: "#18BE6B",
+              stroke: "none",
+              rx: 4,
+              ry: 4,
+            },
+            label: {
+              fill: "#B1E9CC",
+            },
+          },
+    },
+    {
+      id: 'node3', // String，节点的唯一标识
+      x: 140,      // Number，必选，节点位置的 x 值
+      y: 180,      // Number，必选，节点位置的 y 值
+      width: 80,   // Number，可选，节点大小的 width 值
+      height: 40,  // Number，可选，节点大小的 height 值
+      label: '华南', // String，节点标签
+      attrs: {
+            body: {
+              fill: "#18BE6B",
+              stroke: "none",
+              rx: 4,
+              ry: 4,
+            },
+            label: {
+              fill: "#B1E9CC",
+            },
+          },
+    },
+    {
+      id: 'node4', // String，节点的唯一标识
+      x: 240,      // Number，必选，节点位置的 x 值
+      y: 180,      // Number，必选，节点位置的 y 值
+      width: 80,   // Number，可选，节点大小的 width 值
+      height: 40,  // Number，可选，节点大小的 height 值
+      label: '华北', // String，节点标签
+      attrs: {
+            body: {
+              fill: "#18BE6B",
+              stroke: "none",
+              rx: 4,
+              ry: 4,
+            },
+            label: {
+              fill: "#B1E9CC",
+            },
+          },
+    },
+    {
+      id: 'node5', // String，节点的唯一标识
+      x: 340,      // Number，必选，节点位置的 x 值
+      y: 180,      // Number，必选，节点位置的 y 值
+      width: 80,   // Number，可选，节点大小的 width 值
+      height: 40,  // Number，可选，节点大小的 height 值
+      label: '西部', // String，节点标签
+      attrs: {
+            body: {
+              fill: "#18BE6B",
+              stroke: "none",
+              rx: 4,
+              ry: 4,
+            },
+            label: {
+              fill: "#B1E9CC",
+            },
+          },
+    },
+    {
+      id: 'node6', // String，节点的唯一标识
+      x: 440,      // Number，必选，节点位置的 x 值
+      y: 180,      // Number，必选，节点位置的 y 值
+      width: 80,   // Number，可选，节点大小的 width 值
+      height: 40,  // Number，可选，节点大小的 height 值
+      label: '其他', // String，节点标签
+      attrs: {
+            body: {
+              fill: "#18BE6B",
+              stroke: "none",
+              rx: 4,
+              ry: 4,
+            },
+            label: {
+              fill: "#B1E9CC",
+            },
+          },
+    },
+    {
+      id: 'node7', // String，节点的唯一标识
+      x: 0,      // Number，必选，节点位置的 x 值
+      y: 280,      // Number，必选，节点位置的 y 值
+      width: 80,   // Number，可选，节点大小的 width 值
+      height: 40,  // Number，可选，节点大小的 height 值
+      label: '江苏', // String，节点标签
+      attrs: {
+            body: {
+              fill: "#18BE6B",
+              stroke: "none",
+              rx: 4,
+              ry: 4,
+            },
+            label: {
+              fill: "#B1E9CC",
+            },
+          },
+    },
+    {
+      id: 'node8', // String，节点的唯一标识
+      x: 100,      // Number，必选，节点位置的 x 值
+      y: 280,      // Number，必选，节点位置的 y 值
+      width: 80,   // Number，可选，节点大小的 width 值
+      height: 40,  // Number，可选，节点大小的 height 值
+      label: '浙江', // String，节点标签
+      attrs: {
+            body: {
+              fill: "#18BE6B",
+              stroke: "none",
+              rx: 4,
+              ry: 4,
+            },
+            label: {
+              fill: "#B1E9CC",
+            },
+          },
+    },
+    {
+      id: 'node9', // String，节点的唯一标识
+      x: 200,      // Number，必选，节点位置的 x 值
+      y: 280,      // Number，必选，节点位置的 y 值
+      width: 80,   // Number，可选，节点大小的 width 值
+      height: 40,  // Number，可选，节点大小的 height 值
+      label: '广东', // String，节点标签
+      attrs: {
+            body: {
+              fill: "#18BE6B",
+              stroke: "none",
+              rx: 4,
+              ry: 4,
+            },
+            label: {
+              fill: "#B1E9CC",
+            },
+          },
+    },
+    {
+      id: 'nodejs', // String，节点的唯一标识
+      x: 300,      // Number，必选，节点位置的 x 值
+      y: 280,      // Number，必选，节点位置的 y 值
+      width: 80,   // Number，可选，节点大小的 width 值
+      height: 40,  // Number，可选，节点大小的 height 值
+      label: '其他', // String，节点标签
+      attrs: {
+            body: {
+              fill: "#18BE6B",
+              stroke: "none",
+              rx: 4,
+              ry: 4,
+            },
+            label: {
+              fill: "#B1E9CC",
+            },
+          },
+    },
+  ],
+  // 边
+  edges: [
+    {
+      source: 'node2', // String，必须，起始节点 id
+      target: 'node1', // String，必须，目标节点 id
+    },
+    {
+      source: 'node3', // String，必须，起始节点 id
+      target: 'node1', // String，必须，目标节点 id
+    },
+    {
+      source: 'node4', // String，必须，起始节点 id
+      target: 'node1', // String，必须，目标节点 id
+    },
+    {
+      source: 'node5', // String，必须，起始节点 id
+      target: 'node1', // String，必须，目标节点 id
+    },
+    {
+      source: 'node6', // String，必须，起始节点 id
+      target: 'node1', // String，必须，目标节点 id
+    },
+    {
+      source: 'node7', // String，必须，起始节点 id
+      target: 'node2', // String，必须，目标节点 id
+    },
+    {
+      source: 'node8', // String，必须，起始节点 id
+      target: 'node2', // String，必须，目标节点 id
+    },
+    {
+      source: 'node9', // String，必须，起始节点 id
+      target: 'node3', // String，必须，目标节点 id
+    },
+    {
+      source: 'nodejs', // String，必须，起始节点 id
+      target: 'node4', // String，必须，目标节点 id
+    },
+    {
+      source: 'nodejs', // String，必须，起始节点 id
+      target: 'node5', // String，必须，目标节点 id
+    },
+    {
+      source: 'nodejs', // String，必须，起始节点 id
+      target: 'node6', // String，必须，目标节点 id
+    },
+  ],
+};
 
 export default {
   data() {
@@ -99,84 +319,26 @@ export default {
 
     // 4. 准备数据和配置项
     const result = _.merge(res.data, this.options)
-
+    
     // 5. 展示数据
     myChart.setOption(result)
+    this.init();
   },
-  methods: {}
+  methods: {
+    init() {
+      new Graph({
+        container: document.getElementById("container"),
+        width: 800,
+        height: 600,
+      }).fromJSON(data);
+    },
+  }
 }
 </script>
 
 <style lang="less" scoped>
-.outer {
-  position: relative;
-}
 .el-card {
   height: 550px;
 }
-// 立方体样式
-html {
-            perspective: 800px
-        }
 
-        .cube {
-            width: 200px;
-            height: 200px;
-            position: absolute;
-            top: 10%;
-            right: 8%;
-            /* background-color: #bfa; */
-            margin: 100px auto;
-            /* 设置3d变形效果 */
-            transform-style: preserve-3d;
-            /* transform: rotateX(45deg) rotateZ(45deg); */
-            animation: rotate 15s infinite linear;
-            /* transform:rotateY(45deg) scaleZ(2); */
-        }
-
-        .cube>div {
-            width: 200px;
-            height: 200px;
-            /* 为元素设置透明效果 */
-            opacity: 0.7;
-            position: absolute;
-        }
-
-        img {
-            vertical-align: top;
-        }
-
-        .box1 {
-            transform: rotateY(90deg) translateZ(100px);
-        }
-
-        .box2 {
-            transform: rotateY(-90deg) translateZ(100px);
-        }
-
-        .box3 {
-            transform: rotateX(90deg) translateZ(100px);
-        }
-
-        .box4 {
-            transform: rotateX(-90deg) translateZ(100px);
-        }
-
-        .box5 {
-            transform:rotateY(180deg) translateZ(100px);
-        }
-
-        .box6 {
-            transform: rotateY(0deg) translateZ(100px);
-        }
-
-        @keyframes rotate {
-            form{
-                transform:rotateX(0) rotateZ(0)
-            }
-
-            to{
-                transform:rotateX(1turn) rotateZ(1turn)
-            }
-        }
 </style>

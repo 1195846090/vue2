@@ -3,7 +3,7 @@
     <div class="map1"></div>
     <div class="map2"></div>
     <div class="map3"></div>
-    <div class="chart"></div>
+    <div class="chart" style=" width: 68%; height: 91%;"></div>
   </div>
 </template>
 
@@ -388,8 +388,6 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 68%;
-      height: 91%;
       
     }
 
