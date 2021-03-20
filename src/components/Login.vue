@@ -95,7 +95,8 @@ export default {
 <style lang="less" scoped>
 .login_container {
   // background-color: #2b4b6b;
-  background: url('../assets/img/cat.jpg');
+  background: url('../assets/img/bgcat.jpg')no-repeat;
+  background-size: 100%;
   height: 100%;
   position: relative;
 }
