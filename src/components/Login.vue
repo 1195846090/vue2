@@ -36,6 +36,7 @@
         </el-form-item>
       </el-form>
     </div>
+    <div class="leftbox"><img src="../assets/img/login-img.png" alt=""></div>
   </div>
 </template>
 
@@ -95,7 +96,7 @@ export default {
 <style lang="less" scoped>
 .login_container {
   // background-color: #2b4b6b;
-  background: url('../assets/img/bgcat.jpg')no-repeat;
+  background-color: #3CA993;
   background-size: 100%;
   height: 100%;
   position: relative;
@@ -140,5 +141,13 @@ export default {
 .btns {
   display: flex;
   justify-content: flex-end;
+}
+.leftbox {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: 0;
+  top:50%;
+  transform: translateY(-50%)
 }
 </style>
